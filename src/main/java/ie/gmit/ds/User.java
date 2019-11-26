@@ -1,6 +1,8 @@
 package ie.gmit.ds;
 
 public class User {
+	
+	//Adapted from: https://github.com/john-french/artistAPI-dropwizard-soln
 
 	private int userId;
 	private String userName;
@@ -22,6 +24,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 	}
+	
 	
 	public int getUserId() {
 		return userId;
