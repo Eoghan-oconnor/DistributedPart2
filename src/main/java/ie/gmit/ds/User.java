@@ -71,5 +71,15 @@ public class User {
 	public String getSalt() {
 		return salt;
 	}
+	
+	public String toString() {
+		 return "User{" +
+	                "user_id=" + userId +
+	                ", user_name='" + userName + '\'' +
+	                ", email='" + email + '\'' +
+	                ", password='" + password + '\'' +
+	                ", hashed_password=" + hashedpassword +
+	                ", salt=" + salt + '}';
+	}
 
 }
