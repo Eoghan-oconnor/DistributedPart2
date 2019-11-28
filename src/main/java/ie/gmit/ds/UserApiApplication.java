@@ -6,8 +6,9 @@ import org.slf4j.Logger;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
-//this class is used to wire them into a dropwizard application
+//	this class is used to wire them into a dropwizard application
 // adapted from https://github.com/john-french/artistAPI-dropwizard
+// adapted from https://howtodoinjava.com/dropwizard/tutorial-and-hello-world-example/
 
 public class UserApiApplication extends Application<UserApiConfig> {
 	
@@ -22,13 +23,14 @@ public class UserApiApplication extends Application<UserApiConfig> {
 	public void run(UserApiConfig configuration, Environment environment) throws Exception {
 		
 		final ExampleHealthCheck hc = new ExampleHealthCheck();
-		environment.healthChecks().register("Example", hc);
+		//environment.healthChecks().register("Example", hc);
 		
 		logger.info("Getting REST resources");
+		environment.jersey().register(new UserApiResource(environment.getValidator()));
+		//final UserApiResource resource = new UserApiResource();
+		environment.healthChecks().register("Health Check", new ExampleHealthCheck());
 		
-		final UserApiResource resource = new UserApiResource();
-		
-		environment.jersey().register(resource);
+		//environment.jersey().register(resource);
 
 	}
 
