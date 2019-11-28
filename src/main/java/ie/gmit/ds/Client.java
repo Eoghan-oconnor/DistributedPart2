@@ -80,7 +80,7 @@ public class Client {
 			return;
 		}
 		return;
-	}
+	}	
 	
 	public boolean validate(ByteString hash, ByteString salt, String password) {
 		
